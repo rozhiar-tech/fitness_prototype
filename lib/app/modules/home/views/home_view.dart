@@ -53,8 +53,8 @@ class HomeView extends GetView<HomeController> {
                                   const SizedBox(
                                     height: 6,
                                   ),
-                                  const Text(
-                                    'Hello User',
+                                  Text(
+                                    controller.title.value,
                                     style: TextStyle(
                                       fontSize: 17,
                                       fontWeight: FontWeight.bold,
@@ -290,11 +290,11 @@ class HomeView extends GetView<HomeController> {
                                             color: Colors.white,
                                             borderRadius:
                                                 BorderRadius.circular(10),
-                                            // image: DecorationImage(
-                                            //   image: NetworkImage(controller
-                                            //       .meals[index].image),
-                                            //   fit: BoxFit.cover,
-                                            // ),
+                                            image: DecorationImage(
+                                                image: Image.asset(
+                                                  'assets/salad.jpg',
+                                                ).image,
+                                                fit: BoxFit.cover),
                                           ),
                                         ),
                                         Padding(
@@ -325,8 +325,90 @@ class HomeView extends GetView<HomeController> {
                                 );
                               },
                             ),
-                          )
+                          ),
                         ],
+                      ),
+                    ),
+                    Positioned(
+                      top: Get.height * 0.67,
+                      left: 0,
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.toNamed('/workouts');
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(left: Get.width * 0.04),
+                          height: Get.height * 0.19,
+                          width: Get.width * 0.92,
+                          decoration: BoxDecoration(
+                            color: Color(0xff20008A),
+                            borderRadius: BorderRadius.circular(24),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 7,
+                                offset: const Offset(
+                                    0, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "یاریەکانی ئەمڕۆ",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              SizedBox(
+                                height: Get.height * 0.01,
+                              ),
+                              Row(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.only(left: 18),
+                                    height: Get.height * 0.1,
+                                    width: Get.width * 0.2,
+                                    child: Image.asset(
+                                      'assets/chest.png',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: Get.width * 0.06,
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 18),
+                                    height: Get.height * 0.1,
+                                    width: Get.width * 0.2,
+                                    child: Image.asset(
+                                      'assets/bicep.png',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: Get.width * 0.08,
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 18),
+                                    height: Get.height * 0.1,
+                                    width: Get.width * 0.2,
+                                    child: Image.asset(
+                                      'assets/back.png',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     )
                   ],
